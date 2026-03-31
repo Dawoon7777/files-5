@@ -89,7 +89,7 @@ def run_twa_point(args):
     true_params = {
         'kd': kr, 'k': K_TRUE, 'th_med': TH_MED_TRUE, 'beta': BETA_TRUE, 'hb': HB
     }
-    concs = design_concentrations(TH_MED_TRUE, kd=kr)
+    concs = design_concentrations(TH_MED_TRUE)
     
     frac_eq = 1.0 - np.exp(-kr * 4.0)
     lc50_approx = TH_MED_TRUE / max(frac_eq, 0.05)

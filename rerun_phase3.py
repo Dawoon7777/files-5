@@ -62,7 +62,7 @@ def verify_kd_free():
     print("=" * 60)
     rng = np.random.default_rng(999)
     params = {'kd': 2.0, 'k': 0.45, 'th_med': 3.0, 'beta': 5.0, 'hb': 0.001}
-    concs = design_concentrations(3.0, kd=2.0)
+    concs = design_concentrations(3.0)
     ds = generate_lc50_data(concs, params, 20, rng=rng)
     
     rB = fit_classB(ds, kd=2.0, hb=0.001, n_starts=15, fit_kd=True, rng=rng)
@@ -104,7 +104,7 @@ def run_phase3_point(args):
     true_params = {
         'kd': kr, 'k': K_TRUE, 'th_med': TH_MED_TRUE, 'beta': BETA_TRUE, 'hb': HB
     }
-    concs = design_concentrations(TH_MED_TRUE, kd=kr)
+    concs = design_concentrations(TH_MED_TRUE)
     
     # LC50 approximation: D(T) = C * (1 - exp(-kd*T)), so C_LC50 = th / frac_eq
     frac_eq = 1.0 - np.exp(-kr * 4.0)
